@@ -1,0 +1,20 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+About us
+{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
