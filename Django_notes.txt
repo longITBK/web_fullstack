@@ -1,0 +1,23 @@
+* Steps by steps to run django web:
+
+- run the python virtual environment 
+  cmd: 	.venv/Scripts/activate
+
+- run the manage.py file: 
+  cmd: 	python manage.py runserver
+
+* Note: 
+- to create a new Django project 
+  cmd: 	django-admin startproject "name of the project" .
+
+- to create a new Django app 
+  cmd: 	python manage.py startapp "name of the app"
+
+- to collect all static ffiles into top level static_collected folder
+  cmd: 	python manage.py collectstatic
+
+- to generate scripts in migrations folder, migrate database from current to new state
+  cmd: 	python manage.py makemigrations
+
+- to apply the scripts to the actual database
+  cmd: 	python manage.py migrate

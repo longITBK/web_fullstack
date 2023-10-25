@@ -7,13 +7,11 @@ About us
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Age</th>
     </tr>
-    {% for user in users %}
+    {% for building in buildings %}
     <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.age }}</td>
+        <td>{{ building.id }}</td>
+        <td>{{ building.name }}</td>
     </tr>
     {% endfor %}
 </table>

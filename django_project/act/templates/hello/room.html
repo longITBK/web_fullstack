@@ -1,0 +1,22 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+Contact me
+{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Floor</th>
+        <th>Building</th>
+    </tr>
+    {% for room in rooms %}
+    <tr>
+        <td>{{ room.id }}</td>
+        <td>{{ room.name }}</td>
+        <td>{{ room.floor }}</td>
+        <td>{{ room.building }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
