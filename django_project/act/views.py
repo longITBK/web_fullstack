@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views import generic
 
-from act.models import Building, Room
+from act.models import *
 
 # Create your views here.
 def login_page(request):
@@ -61,21 +61,44 @@ class HomeView(generic.TemplateView):
 # def home(request):
 #     return render(request, "hello/home.html")
 
+  
+def building(request):
+    buidlings = Building.objects.all()
+    context = {
+        'buildings': buidlings
+    }
+    return render(request, "hello/building.html", context)
+
+def create_building(request):
+    if request.method == "POST":
+        form = BuildingForm(request.POST)
+        if form.is_valid:
+            try:
+                form.save()
+                return redirect('/building/')
+            except: 
+                pass
+    return render(request, "hello/create_building.html")
+
+def update_building(request, id):
+    if request.method == "POST":
+        building = Building.objects.get(id = id)
+        form = BuildingForm(request.POST, instance=building)
+        if form.is_valid:
+                try:
+                    form.save()
+                    return redirect('/building/')
+                except: 
+                    pass
+    building = Building.objects.get(id = id)
+    return render(request, "hello/update_building.html", {'building' : building})
+
+def delete_building(request, id):
+    building = Building.objects.get(id = id)
+    building.delete()
+    return redirect('/building/')
 
 
-# This class extends from django generic Views
-class InformationView(generic.ListView):
-    model = Building
-    template_name = "hello/building.html"
-    context_object_name = 'buildings'
-    
-
-# def information(request):
-#     users = User.objects.all()
-#     context = {
-#         'users': users
-#     }
-#     return render(request, "hello/information.html", context)
 
 
 # This class extends from django generic Views

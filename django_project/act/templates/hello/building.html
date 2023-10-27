@@ -3,15 +3,30 @@
 About us
 {% endblock %}
 {% block content %}
+<form action="/building/create/">
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+    
+    <button type="submit">Add new</button>
+</form>
+
+
 <table>
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Actions</th>
+        <th>Actions</th>
     </tr>
     {% for building in buildings %}
     <tr>
         <td>{{ building.id }}</td>
         <td>{{ building.name }}</td>
+        <td><a href="/building/update/{{ building.id }}">Edit</a></td>
+        <td><a href="/building/delete/{{ building.id }}">Delete</a></td>
     </tr>
     {% endfor %}
 </table>
