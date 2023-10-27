@@ -9,6 +9,7 @@ Contact me
         <th>Name</th>
         <th>Floor</th>
         <th>Building</th>
+        <th></th>
     </tr>
     {% for room in rooms %}
     <tr>
@@ -16,6 +17,7 @@ Contact me
         <td>{{ room.name }}</td>
         <td>{{ room.floor }}</td>
         <td>{{ room.building.name }}</td>
+        <td><button>Del</button></td>
     </tr>
     {% endfor %}
 </table>
