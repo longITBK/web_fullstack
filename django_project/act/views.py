@@ -68,6 +68,7 @@ class InformationView(generic.ListView):
     model = Building
     template_name = "hello/building.html"
     context_object_name = 'buildings'
+    
 
 # def information(request):
 #     users = User.objects.all()
